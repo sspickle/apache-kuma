@@ -3,8 +3,6 @@ services:
   kuma:
     image: louislam/uptime-kuma:latest
     restart: always
-    ports:
-      - "3001:3001"
     volumes:
       - uptime-kuma:/app/data
       - .:/scratch
