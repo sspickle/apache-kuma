@@ -1,0 +1,19 @@
+
+services:
+  apache:
+    image: httpd:latest
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./vhosts.conf:/usr/local/apache2/conf/vhosts.conf
+      - .:/scratch
+    networks:
+     - pgnet
+
+networks:
+  pgnet:
+    name: pg_default
+    external: true
+
